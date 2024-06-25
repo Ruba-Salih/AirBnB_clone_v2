@@ -45,14 +45,21 @@ class HBNBCommand(cmd.Cmd):
         Usage: create <class name>
         """
         args = arg.split()
+        dic_key_name = {}
+
 
         if not args:
             print("** class name missing **")
             return None
 
-        if len(args) != 1:
-            print("** expicted one arguminte **")
-            return None
+        for param in args[1:]:
+                key_name = param.split("=")
+                key_name[1] = eval(key_name[1])
+
+                if type(key_name[1]) == str:
+                    key_name[1] = key_name[1].replace("_", " ").replace('"', '\\"')
+
+                dic_key_name[key_name[0]] = key_name[1]
 
         className = args[0]
         if className not in HBNBCommand.__supported_classes:
