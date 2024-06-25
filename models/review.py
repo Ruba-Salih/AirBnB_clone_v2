@@ -2,10 +2,10 @@
 """
 class named review that inharits from BaseModel
 """
-from models.base_model import BaseModel
+from models.base_model import BaseModel, Base
 
 
-class Review(BaseModel):
+class Review(BaseModel, Base):
     """Represent a review
 
     Attributes:

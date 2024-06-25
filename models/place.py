@@ -2,11 +2,11 @@
 """
 class named place that inharits from BaseModel
 """
-from models.base_model import BaseModel
+from models.base_model import BaseModel, Base
 from sqlalchemy import Column, Table, String, Integer, Float, ForeignKey
 
 
-class Place(BaseModel):
+class Place(BaseModel, Base):
     """Inherits from BaseModel class
 
      Attributes:
