@@ -1,19 +1,20 @@
 #!/usr/bin/python3
 """
-class named amenity that inharits from BaseModel
+class named Amenity that inherits from BaseModel
 """
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String
 from sqlalchemy.orm import relationship
-
+from models.relationship_tables import place_amenity
 
 class Amenity(BaseModel, Base):
-    """An amenity provided by a place/house.
+    """Inherits from BaseModel class
 
     Attributes:
-        name (string): The name of the amenity.
+        name (string): the name of the amenity
     """
-    __tablename__ = 'amenities'
 
+    __tablename__ = 'amenities'
     name = Column(String(128), nullable=False)
-    place_amenities = relationship("Place", secondary='place_amenity', viewonly=False, back_populates='amenities')
+
+    place_amenities = relationship("Place", secondary=place_amenity, viewonly=False, back_populates="amenities")
