@@ -2,6 +2,7 @@
 """
 class named city that inherits from BaseModel and Base
 """
+
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String, ForeignKey
 from sqlalchemy.orm import relationship
@@ -20,5 +21,10 @@ class City(BaseModel, Base):
 
     state_id = Column(String(60), ForeignKey('states.id'), nullable=False)
     name = Column(String(128), nullable=False)
+<<<<<<< HEAD
 
     places = relationship("Place", backref="city", cascade="all, delete")
+=======
+    places = relationship("Place", cascade='all, delete',
+                          backref="cities")
+>>>>>>> a39e65add451a0b9600f33df42b0fba4c78da129
