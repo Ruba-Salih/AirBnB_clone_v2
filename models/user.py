@@ -14,6 +14,7 @@ class User(BaseModel, Base):
         password (string): The password of the user, can't be null
         first_name (string): The first name of the user, can be null
         last_name (string): The last name of the user, can be null
+        places (relationship): The relationship to Place objects
     """
     __tablename__ = 'users'
 
@@ -22,7 +23,11 @@ class User(BaseModel, Base):
     first_name = Column(String(128), nullable=True)
     last_name = Column(String(128), nullable=True)
 
+<<<<<<< HEAD
+    places = relationship("Place", backref="user", cascade="all, delete")
+=======
     places = relationship("Place", cascade='all, delete, delete-orphan',
                           backref="user")
     reviews = relationship("Review", cascade='all, delete, delete-orphan',
                            backref="user")
+>>>>>>> a39e65add451a0b9600f33df42b0fba4c78da129
