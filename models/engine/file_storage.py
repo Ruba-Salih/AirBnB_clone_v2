@@ -86,3 +86,8 @@ class FileStorage:
                     self.save()
                     # Exit loop after deleting the object
                     break
+
+    def close(self):
+        """Deserializing the JSON file to objects"""
+
+        self.reload()
