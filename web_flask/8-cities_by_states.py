@@ -21,7 +21,7 @@ def closedb(exc):
 @app.route('/cities_by_states')
 def states_list():
     """ /states_list route """
-    states = storage.all(State).values()
+    states = storage.all("State").values()
     return render_template('8-cities_by_states.html', states=states)
 
 
